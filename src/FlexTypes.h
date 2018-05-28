@@ -169,10 +169,6 @@ unsigned int FP_RegisterPosition(enum FPRegister ARegister);
 enum FPMemorySize FP_ByteToSize(const unsigned char AByte);
 enum FPMemorySize FP_RegisterSize(enum FPRegister ARegister);
 
-typedef struct FPSystemCall {
-	unsigned int Code;
-	void(*Call)(struct FPProcessor * AProcessor, unsigned int ACode, unsigned int AParam1, unsigned int AParam2, unsigned int * AOutput);
-};
 
 #endif
 
