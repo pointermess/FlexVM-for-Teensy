@@ -21,24 +21,29 @@ typedef struct FPSystemCall {
 class FlexProcessor
 {
 private:
+	// Members
+	struct FPSystemCall FSystemCalls[16];
 	unsigned long FStartTime;
 	unsigned int FProgramCounter;
 	unsigned int FProgramSize;
 	char * FProgramCode;
 	FlexMemory* FMemory;
-	struct FPSystemCall FSystemCalls[16];
-public:
-	FlexProcessor();
-	~FlexProcessor();
 
 	// Methods
-	void LoadBinary(char * APath);
 	unsigned char ReadNextByte(unsigned int * AStepsTaken);
 	unsigned short ReadNextWord(unsigned int * AStepsTaken);
 	unsigned int ReadNextDWord(unsigned int * AStepsTaken);
 	FPRegister ReadNextBinaryRegister(unsigned int * AStepsTaken);
 	FPBinaryConstant ReadNextBinaryConstant(unsigned int * AStepsTaken);
 	FPBinaryAddress ReadNextBinaryAddress(unsigned int * AStepsTaken);
+public:
+	// Con- & Destructor
+	FlexProcessor();
+	~FlexProcessor();
+
+	// Methods
+	void LoadBinary(char * APath);
+	void ReadBinaryFromSerial();
 	void ExecuteStep();
 	void Execute();
 	void ReportProgramEnd();
