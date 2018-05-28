@@ -4,6 +4,7 @@
 
 #include "FlexProcessor.h"
 #include "FileIO_Arduino.h"
+#include "SCGraphics_Arduino.h"
 
 FlexProcessor::FlexProcessor()
 {
@@ -11,6 +12,15 @@ FlexProcessor::FlexProcessor()
 	FProgramCounter = 0;
 	FProgramSize = 0;
 	FMemory = new FlexMemory(8096);
+
+	FSystemCalls[0].Code = 420;
+	FSystemCalls[0].Call = &FPSCGraphics_Call;
+	/*
+	FSystemCalls[1].Code = 421;
+	FSystemCalls[1].Call = &FPSCKeyboardInput_Call;
+
+	FSystemCalls[2].Code = 422;
+	FSystemCalls[2].Call = &FPSCSysUtils_Call;*/
 }
 
 FlexProcessor::~FlexProcessor()
@@ -40,6 +50,17 @@ void FlexProcessor::LoadBinary(char * APath)
 			Serial.println("");
 		}
 	}
+}
+
+void FlexProcessor::ReadBinaryFromSerial()
+{
+	pinMode(A9, OUTPUT);
+	analogWrite(A9, 1);
+	while (!Serial);
+	analogWrite(A9, 0);
+
+	// serial binary transmission protocol
+	Serial.write("[sbt]ready[/sbt]");
 }
 
 /**
