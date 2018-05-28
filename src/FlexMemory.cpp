@@ -8,7 +8,20 @@
 
 FlexMemory::FlexMemory(unsigned int ASize)
 {
+	BytesLength = ASize;
 	Bytes = new unsigned char[ASize];
+	for (int c = 0; c < ASize; c++)
+		Bytes[c] = 0;
+}
+
+/**
+* FlexMemory::GetMemorySize
+*
+* Returns the size of the memory.
+*/
+unsigned int FlexMemory::GetMemorySize()
+{
+	return BytesLength;
 }
 
 
@@ -113,7 +126,7 @@ void FlexMemory::Write32(const unsigned int APosition, const unsigned int AValue
 *
 * Returns the flags.
 */
-unsigned char FlexMemory::ReadFlags(struct FPMemory * AMemory)
+unsigned char FlexMemory::ReadFlags()
 {
 	return this->Read8(FP_RegisterPosition(fprEBP) + 4);
 }
