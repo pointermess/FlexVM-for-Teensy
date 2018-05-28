@@ -48,7 +48,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\FlexVM4Arduiono;E:\Arduino\arduino-1.8.5\libraries\SdFat-master\src;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries\SPI;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries\ILI9341_t3;E:\Arduino\arduino-1.8.5\libraries;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries;$(ProjectDir)..\libraries;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\avr;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\util;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\utils;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\avr;$(ProjectDir)E:\Arduino\arduino-1.8.5\hardware\tools\arm\arm-none-eabi\include;E:\Arduino\arduino-1.8.5\hardware\teensy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\FlexVM4Arduiono;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries\ILI9341_t3;E:\Arduino\arduino-1.8.5\libraries\SdFat-master\src;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries\SPI;E:\Arduino\arduino-1.8.5\libraries;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\libraries;$(ProjectDir)..\libraries;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\avr;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\util;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\utils;E:\Arduino\arduino-1.8.5\hardware\teensy\avr\cores\teensy3\avr;$(ProjectDir)E:\Arduino\arduino-1.8.5\hardware\tools\arm\arm-none-eabi\include;E:\Arduino\arduino-1.8.5\hardware\teensy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.FlexVM4Arduiono.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__HARDWARE_MK20dx256__;__HARDWARE_MK20DX256__;__MK20DX256__;TEENSYDUINO=141;ARDUINO=10805;F_CPU=96000000;USB_SERIAL;LAYOUT_US_ENGLISH;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -80,16 +80,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DIGraphics_Arduino.h" />
     <ClInclude Include="FileIO_Arduino.h" />
     <ClInclude Include="FileIO_Interface.h" />
     <ClInclude Include="FlexMemory.h" />
+    <ClInclude Include="FlexProcessor.h" />
     <ClInclude Include="FlexTypes.h" />
     <ClInclude Include="__vm\.FlexVM4Arduiono.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DIGraphics_Arduino.cpp" />
     <ClCompile Include="FileIO_Arduino.cpp" />
     <ClCompile Include="FileIO_Interface.cpp" />
     <ClCompile Include="FlexMemory.cpp" />
+    <ClCompile Include="FlexProcessor.cpp" />
     <ClCompile Include="FlexTypes.cpp" />
   </ItemGroup>
   <PropertyGroup>
