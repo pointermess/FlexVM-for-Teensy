@@ -86,6 +86,7 @@
     <ClInclude Include="FlexMemory.h" />
     <ClInclude Include="FlexProcessor.h" />
     <ClInclude Include="FlexTypes.h" />
+    <ClInclude Include="SCGraphics_Arduino.h" />
     <ClInclude Include="__vm\.FlexVM4Arduiono.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +96,7 @@
     <ClCompile Include="FlexMemory.cpp" />
     <ClCompile Include="FlexProcessor.cpp" />
     <ClCompile Include="FlexTypes.cpp" />
+    <ClCompile Include="SCGraphics_Arduino.cpp" />
   </ItemGroup>
   <PropertyGroup>
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
