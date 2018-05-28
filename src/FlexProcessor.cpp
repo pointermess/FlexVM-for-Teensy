@@ -229,28 +229,28 @@ void FlexProcessor::ExecuteStep()
 	case fpiPUSH_CONST:
 	{
 		struct FPBinaryConstant arg1 = ReadNextBinaryConstant(&stepsTaken);
-		//FMemory->Push(arg1.Value, arg1.Size);
+		FMemory->Push(arg1.Value, arg1.Size);
 	}
 	break;
 
 	case fpiPUSH_REG:
 	{
 		enum FPRegister arg1 = ReadNextBinaryRegister(&stepsTaken);
-		//FMemory->Push(FMemory->ReadRegisterValue(arg1), FP_RegisterSize(arg1));
+		FMemory->Push(FMemory->ReadRegisterValue(arg1), FP_RegisterSize(arg1));
 	}
 	break;
 
 	case fpiPUSH_ADDR:
 	{
 		struct FPBinaryAddress arg1 = ReadNextBinaryAddress(&stepsTaken);
-		//FMemory->Push(FMemory->ReadAddressValue(&arg1), arg1.Size);
+		FMemory->Push(FMemory->ReadAddressValue(&arg1), arg1.Size);
 	}
 	break;
 
 	case fpiPOP_REG:
 	{
 		enum FPRegister arg1 = ReadNextBinaryRegister(&stepsTaken);
-		//FMemory->WriteRegisterValue(arg1, FMemory->Pop(FP_RegisterSize(arg1)));
+		FMemory->WriteRegisterValue(arg1, FMemory->Pop(FP_RegisterSize(arg1)));
 	}
 	break;
 
@@ -326,7 +326,7 @@ void FlexProcessor::ExecuteStep()
 	case fpiCALL_LABEL:
 	{
 		unsigned int arg1 = ReadNextDWord(&stepsTaken);
-		//FMemory->Push(this->FProgramCounter + stepsTaken + 1, msDWord);
+		FMemory->Push(this->FProgramCounter + stepsTaken + 1, msDWord);
 		this->FProgramCounter = arg1;
 		jumped = 1;
 	}
@@ -334,7 +334,7 @@ void FlexProcessor::ExecuteStep()
 
 	case fpiRET:
 	{
-		//this->FProgramCounter = FMemory->Pop(msDWord);
+		this->FProgramCounter = FMemory->Pop(msDWord);
 		jumped = 1;
 	}
 	break;
