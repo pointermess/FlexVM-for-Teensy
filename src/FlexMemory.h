@@ -14,13 +14,13 @@
 class FlexMemory
 {
 private:
+	// Members
 	unsigned int BytesLength;
 	unsigned char * Bytes;
 public:
 	FlexMemory(unsigned int ASize);
 
-	unsigned int GetMemorySize();
-
+	// Methods
 	unsigned int Read(const unsigned int APosition, enum FPMemorySize ASize);
 	unsigned char Read8(const unsigned int APosition);
 	unsigned short Read16(const unsigned int APosition);
@@ -43,6 +43,9 @@ public:
 
 	void Push(const unsigned int AValue, enum FPMemorySize ASize);
 	unsigned int Pop(enum FPMemorySize ASize);
+
+	// Properties
+	unsigned int GetMemorySize();
 };
 
 
