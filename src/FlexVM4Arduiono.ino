@@ -1,3 +1,4 @@
+#include "SCGraphics_Arduino.h"
 #include "FlexProcessor.h"
 #include "DIGraphics_Arduino.h"
 #include <SysCall.h>
@@ -11,15 +12,14 @@ FlexProcessor * Processor;
 
 void setup()
 {
-	pinMode(LED_BUILTIN, OUTPUT);     // Initialize the LED_BUILTIN pin as an output
-	Serial.begin(9600);
-	FDIGraphics_Initialize();
-	FDIGraphics_FillScreen();
+	Serial.begin(9600); 
+
+
+
 
 	FDIFileIO_Initialize();
-	while (!Serial);
 	Processor = new FlexProcessor();
-	Processor->LoadBinary("test.asm");
+	Processor->LoadBinary("fill_1x1.asm");
 	Processor->Execute();
 	Processor->ReportProgramEnd();
 }
