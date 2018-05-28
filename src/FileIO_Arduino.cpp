@@ -9,18 +9,25 @@
 #include "SdFat.h"
 #define SD_CS_PIN 8
 SdFat SD;
-char* FlexFileIOArduino::ReadFileBytes(const char * name, int * sz)
+
+bool FDIFileIO_FIsInitialized = false;
+
+void FDIFileIO_Initialize()
 {
+	FDIFileIO_FIsInitialized = SD.begin(SD_CS_PIN, SD_SCK_MHZ(16));
+}
 
-	if (!SD.begin(SD_CS_PIN, SD_SCK_MHZ(8))) {
-		Serial.println("initialization failed!");
-	}
-	Serial.println("initialization done.");
+bool FDIFileIO_IsInitialized()
+{
+	return FDIFileIO_FIsInitialized;
+}
 
+char * FDIFileIO_ReadFileBytes(const char * name, int * size)
+{
 	File file = SD.open(name);
 
 	if (file) {
-		*sz = file.size();
+		*size = file.size();
 		char * ret = new char[file.size()];
 		unsigned int c = 0;
 		while (file.available()) {

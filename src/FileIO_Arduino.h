@@ -10,12 +10,10 @@
 	#include "WProgram.h"
 #endif
 #include "FileIO_Interface.h"
-class FlexFileIOArduino : public FlexFileIO
-{
-public:
-	char* ReadFileBytes(const char *name, int* sz) override;
-};
 
+void FDIFileIO_Initialize();
+bool FDIFileIO_IsInitialized();
+char* FDIFileIO_ReadFileBytes(const char *name, int* size);
 
 #endif
 
