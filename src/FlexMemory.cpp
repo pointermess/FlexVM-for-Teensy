@@ -178,6 +178,20 @@ unsigned int FlexMemory::GetEffectiveAddress(struct FPBinaryAddress * AAddress)
 	return effectiveAddress;
 }
 
+void FlexMemory::Push(const unsigned int AValue, FPMemorySize ASize)
+{
+	unsigned int currentStackPosition = ReadRegisterValue(fprESP) - ASize;
+	Write(currentStackPosition, AValue, ASize);
+	WriteRegisterValue(fprESP, currentStackPosition);
+}
+
+unsigned int FlexMemory::Pop(FPMemorySize ASize)
+{
+	unsigned int currentStackPosition = ReadRegisterValue(fprESP);
+	WriteRegisterValue(fprESP, currentStackPosition + ASize);
+	return Read(currentStackPosition, ASize);
+}
+
 /**
 * FlexMemory::WriteAddressValue
 *
